@@ -4,7 +4,7 @@ let pokemonList = [
     { name: "Bulbasaur", height: 0.7, type: ["Grass", "Poison"] },
     { name: "Lapras", height: 2.5, type: ["Ice", "Water"] },
 ];
-
+//loop to print the pokemon objects with heigh condition to the DOM//
 for (let i = 0; i < pokemonList.length; i++) {
     if (pokemonList[i].height > 1.7) {
         document.write(
