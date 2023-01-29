@@ -11,16 +11,11 @@ for (let i = 0; i < pokemonList.length; i++) {
             pokemonList[i].name +
                 " (height: " +
                 pokemonList[i].height +
-                "m) - Wow that's big!" +
-                "<p>"
+                "m) - Wow that's big! <p>"
         );
     } else {
         document.write(
-            pokemonList[i].name +
-                " (height: " +
-                pokemonList[i].height +
-                "m)" +
-                "<p>"
+            pokemonList[i].name + " (height: " + pokemonList[i].height + "m)<p>"
         );
     }
 }
