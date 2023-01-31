@@ -12,7 +12,15 @@ let pokemonRepository = (function () {
     }
 
     function add(pokemon) {
-        pokemonList.push(pokemon);
+        if (typeof pokemon === "object") {
+            if (Object.keys(pokemonList[0]).every(key => key in pokemon)) {
+                pokemonList.push(pokemon);
+            } else {
+                console.log(
+                    "Incorrect Pokemon Data! Please enter name, height, and type(s)."
+                );
+            }
+        }
     }
 
     return {
