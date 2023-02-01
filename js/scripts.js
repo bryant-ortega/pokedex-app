@@ -23,9 +23,16 @@ let pokemonRepository = (function () {
         }
     }
 
+    function search(query) {
+        return pokemonList.filter(pokemon =>
+            pokemon.name.toLowerCase().includes(query.toLowerCase())
+        );
+    }
+
     return {
         getAll: getAll,
         add: add,
+        search: search,
     };
 })();
 
