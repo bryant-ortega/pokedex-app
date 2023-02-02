@@ -47,22 +47,6 @@ let pokemonRepository = (function () {
     };
 })();
 
-/*the original for loop 
-loop to print the pokemon objects with height condition to the DOM//
-for (let i = 0; i < pokemonList.length; i++) {
-    if (pokemonList[i].height > 1.7) {
-        document.write(
-            pokemonList[i].name +
-                " (height: " +
-                pokemonList[i].height +
-                "m) - Wow that's big! <p>"
-        );
-    } else {
-        document.write(
-            pokemonList[i].name + " (height: " + pokemonList[i].height + "m)<p>"
-        );
-    }
-} */
 
 // New .forEach() loop //
 pokemonRepository.getAll().forEach(function (pokemon) {
