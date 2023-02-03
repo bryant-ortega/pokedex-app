@@ -19,3 +19,7 @@
 .pokemon-list {
     list-style-type: none;
 }
+
+.customButton:hover {
+    cursor: pointer;
+}
