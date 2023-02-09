@@ -70,18 +70,18 @@ let pokemonRepository = (function () {
                 console.error(e);
             });
     }
-
-    function loadDetails(item) {
-        let url = item.detailsUrl;
+    // load details of selected pokemon   //
+    function loadDetails(pokemon) {
+        let url = pokemon.detailsUrl;
         return fetch(url)
             .then(function (response) {
                 return response.json();
             })
             .then(function (details) {
                 // Now we add the details to the item
-                item.imageUrl = details.sprites.front_default;
-                item.height = details.height;
-                item.types = details.types;
+                pokemon.imageUrl = details.sprites.front_default;
+                pokemon.height = details.height;
+                pokemon.types = details.types;
             })
             .catch(function (e) {
                 console.error(e);
@@ -94,6 +94,7 @@ let pokemonRepository = (function () {
         search: search,
         addListItem: addListItem,
         loadList: loadList,
+        loadDetails: loadDetails,
     };
 })();
 
