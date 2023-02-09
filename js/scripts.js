@@ -1,11 +1,8 @@
 // wrapping Pokémon Data in IIFE format //
 let pokemonRepository = (function () {
     // Pokémon data to display in app//
-    let pokemonList = [
-        { name: "Charizard", height: 1.7, type: ["Fire", "Flying"] },
-        { name: "Bulbasaur", height: 0.7, type: ["Grass", "Poison"] },
-        { name: "Lapras", height: 2.5, type: ["Ice", "Water"] },
-    ];
+    let pokemonList = [];
+    let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
 
     function getAll() {
         return pokemonList;
@@ -34,7 +31,7 @@ let pokemonRepository = (function () {
         let listPokemon = document.createElement("li");
         let button = document.createElement("button");
 
-        // creating button to add pokekmon //
+        // creating button to add pokemon //
         button.innerText = pokemon.name;
         button.classList.add("customButton");
         listPokemon.appendChild(button);
@@ -53,14 +50,41 @@ let pokemonRepository = (function () {
     function showDetails(pokemon) {
         console.log(pokemon);
     }
+    //   will fetch data from the api   //
+    function loadList() {
+        return fetch(apiUrl)
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (json) {
+                json.results.forEach(function (item) {
+                    let pokemon = {
+                        name: item.name,
+                        detailsUrl: item.url,
+                    };
+                    add(pokemon);
+                });
+            })
+            .catch(function (e) {
+                console.error(e);
+            });
+    }
 
     return {
         getAll: getAll,
         add: add,
         search: search,
         addListItem: addListItem,
+        loadList: loadList,
     };
 })();
+
+pokemonRepository.loadList().then(function () {
+    // Now the data is loaded!
+    pokemonRepository.getAll().forEach(function (pokemon) {
+        pokemonRepository.addListItem(pokemon);
+    });
+});
 
 // New .forEach() loop //
 pokemonRepository.getAll().forEach(function (pokemon) {
