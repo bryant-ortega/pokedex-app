@@ -1,5 +1,5 @@
 .customButton {
-    color: rgb(0, 0, 0);
+    color: rgb(248, 213, 57);
     display: inline-block;
     text-transform: capitalize;
     text-align: center;
@@ -8,12 +8,13 @@
     margin: 3px 0px;
     width: 210px;
     font-family: inherit;
-    font-size: 20px;
-    background: #fffc5a;
-    border-radius: 5px;
+    font-size: 32px;
+    background: #fd5555;
+    border-radius: 10px;
     font-weight: 1000;
-    box-shadow: 2px 2px 0px 0px rgb(255, 35, 35);
-    border-color: rgb(0, 0, 0);
+    border-width: thick;
+    border-color: rgb(81, 111, 194);
+    box-shadow: 1px 1px 0px 0px rgb(0, 0, 0);
 }
 
 .pokemon-list {

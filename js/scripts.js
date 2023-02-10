@@ -10,14 +10,14 @@ let pokemonRepository = (function () {
 
     function add(pokemon) {
         if (typeof pokemon === "object") {
-                pokemonList.push(pokemon);
-            } else {
-                console.log(
-                    "Incorrect Pokemon Data! Please enter name, height, and type(s)."
-                );
-            }
+            pokemonList.push(pokemon);
+        } else {
+            console.log(
+                "Incorrect Pokemon Data! Please enter name, height, and type(s)."
+            );
         }
     }
+
     // Bonus Task .filter() search function //
     function search(query) {
         return pokemonList.filter(pokemon =>
