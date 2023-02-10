@@ -10,7 +10,6 @@ let pokemonRepository = (function () {
 
     function add(pokemon) {
         if (typeof pokemon === "object") {
-            if (Object.keys(pokemonList[0]).every(key => key in pokemon)) {
                 pokemonList.push(pokemon);
             } else {
                 console.log(
