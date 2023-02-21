@@ -26,14 +26,19 @@ let pokemonRepository = (function () {
     }
 
     function addListItem(pokemon) {
+        // defines where in the HTML the pokemon will appear //
         let pokemonList = document.querySelector(".pokemon-list");
+        // create list elements for each pokemon //
         let listPokemon = document.createElement("li");
+        // create button element for each pokemon //
         let button = document.createElement("button");
 
-        // creating button to add pokemon //
+        // define button to add pokemon //
         button.innerText = pokemon.name;
         button.classList.add("customButton");
+        // add button to each list element for each pokemon //
         listPokemon.appendChild(button);
+        // add list elements to the HTML section //
         pokemonList.appendChild(listPokemon);
 
         // event listener added to button //
@@ -69,7 +74,7 @@ let pokemonRepository = (function () {
         titleElement.innerText = pokemon.name;
 
         let contentElement = document.createElement("p");
-        contentElement.innerText = pokemon.height;
+        contentElement.innerText = "Height: " + pokemon.height;
 
         let pokemonImage = document.createElement("img");
         pokemonImage.src = pokemon.imageUrl;
