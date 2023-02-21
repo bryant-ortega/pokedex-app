@@ -2,12 +2,14 @@
 let pokemonRepository = (function () {
     // Pokémon data to display in app//
     let pokemonList = [];
+    //where all the pokemon information comes from //
     let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
 
+    // get's you the full list of pokemon //
     function getAll() {
         return pokemonList;
     }
-
+// checks if new pokemon is an object type then adds to the pokemonList array //
     function add(pokemon) {
         if (typeof pokemon === "object") {
             pokemonList.push(pokemon);
@@ -24,7 +26,7 @@ let pokemonRepository = (function () {
             pokemon.name.toLowerCase().includes(query.toLowerCase())
         );
     }
-
+// creates list of pokemon buttons //
     function addListItem(pokemon) {
         // defines where in the HTML the pokemon will appear //
         let pokemonList = document.querySelector(".pokemon-list");
@@ -44,9 +46,10 @@ let pokemonRepository = (function () {
         // event listener added to button //
         addEventListener(button, pokemon);
     }
-
+// declares what the button event listener does //
     function addEventListener(button, pokemon) {
         button.addEventListener("click", function (event) {
+            // when button is clicked, showDetails function runs //
             showDetails(pokemon);
         });
     }
@@ -55,7 +58,6 @@ let pokemonRepository = (function () {
 
     let modalContainer = document.querySelector("#modal-container");
 
-    // REST OF CODE
 
     function showModal(pokemon) {
         // Clear all existing modal content
