@@ -78,3 +78,11 @@
 .modal p {
   margin-bottom: 0;
 }
+
+#modal-container {
+  display: none;
+}
+
+#modal-container.is-visible {
+  display: block;
+}
