@@ -47,7 +47,9 @@ let pokemonRepository = (function () {
     }
 
     function showDetails(pokemon) {
-        console.log(pokemon);
+       loadDetails(pokemon).then(function () {
+           showModal(pokemon);
+       });
     }
     //   will fetch data from the api   //
     function loadList() {
@@ -128,10 +130,10 @@ pokemonRepository.getAll().forEach(function (pokemon) {
         closeButtonElement.addEventListener("click", hideModal);
 
         let titleElement = document.createElement("h1");
-        titleElement.innerText = title;
+        titleElement.innerText = pokemon.name;
 
         let contentElement = document.createElement("p");
-        contentElement.innerText = text;
+        contentElement.innerText = pokemon.height;
 
         modal.appendChild(closeButtonElement);
         modal.appendChild(titleElement);
