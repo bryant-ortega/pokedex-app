@@ -112,8 +112,6 @@ pokemonRepository.getAll().forEach(function (pokemon) {
 (function () {
     let modalContainer = document.querySelector("#modal-container");
 
-    // REST OF CODE
-
     function showModal(pokemon) {
         // Clear all existing modal content
         modalContainer.innerHTML = "";
