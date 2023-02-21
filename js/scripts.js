@@ -139,7 +139,6 @@ pokemonRepository.getAll().forEach(function (pokemon) {
         modalContainer.classList.add("is-visible");
     }
 
-    let dialogPromiseReject;
 
     function hideModal() {
         modalContainer.classList.remove("is-visible");
