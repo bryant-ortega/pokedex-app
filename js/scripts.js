@@ -55,10 +55,10 @@ let pokemonRepository = (function () {
     }
 
     // Modal code from exercise //
-
+// declares what/where modalContainer is //
     let modalContainer = document.querySelector("#modal-container");
 
-
+// creates the modal //
     function showModal(pokemon) {
         // Clear all existing modal content
         modalContainer.innerHTML = "";
@@ -171,4 +171,4 @@ pokemonRepository.loadList().then(function () {
     });
 });
 
-// THE RETURN STATEMENT HERE
+
