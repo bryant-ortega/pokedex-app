@@ -125,15 +125,15 @@ pokemonRepository.getAll().forEach(function (pokemon) {
         closeButtonElement.innerText = "Close";
         closeButtonElement.addEventListener("click", hideModal);
 
-        let titleElement = document.createElement("h1");
-        titleElement.innerText = title;
+        let pokemonName = document.createElement("h1");
+        pokemonName.innerText = pokemon.name;
 
-        let contentElement = document.createElement("p");
-        contentElement.innerText = text;
+        let pokemonHeight = document.createElement("p");
+        contentElement.innerText = pokemon.height;
 
         modal.appendChild(closeButtonElement);
-        modal.appendChild(titleElement);
-        modal.appendChild(contentElement);
+        modal.appendChild(pokemonName);
+        modal.appendChild(pokemon.height);
         modalContainer.appendChild(modal);
 
         modalContainer.classList.add("is-visible");
@@ -150,48 +150,8 @@ pokemonRepository.getAll().forEach(function (pokemon) {
         }
     }
 
-    function showDialog(title, text) {
-        showModal(title, text);
-
-        let modal = modalContainer.querySelector(".modal");
-
-        let confirmButton = document.createElement("button");
-        confirmButton.classList.add("modal-confirm");
-        confirmButton.innerText = "Confirm";
-
-        let cancelButton = document.createElement("button");
-        cancelButton.classList.add("modal-cancel");
-        cancelButton.innerText = "Cancel";
-
-        modal.appendChild(confirmButton);
-        modal.appendChild(cancelButton);
-
-        confirmButton.focus();
-
-        return new Promise((resolve, reject) => {
-            cancelButton.addEventListener("click", hideModal);
-            confirmButton.addEventListener("click", () => {
-                dialogPromiseReject = null;
-                hideModal();
-                resolve();
-            });
-            dialogPromiseReject = reject;
-        });
-    }
-
     document.querySelector("#show-modal").addEventListener("click", () => {
         showModal("Modal title", "This is the modal content!");
-    });
-
-    document.querySelector("#show-dialog").addEventListener("click", () => {
-        showDialog("Confirm action", "Are you sure you want to do this?").then(
-            function () {
-                alert("confirmed!");
-            },
-            () => {
-                alert("not confirmed");
-            }
-        );
     });
 
     window.addEventListener("keydown", e => {
