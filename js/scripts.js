@@ -143,16 +143,13 @@ pokemonRepository.getAll().forEach(function (pokemon) {
         modalContainer.classList.add("is-visible");
     }
 
-
     function hideModal() {
         modalContainer.classList.remove("is-visible");
     }
 
-
-    document.querySelector("#show-modal").addEventListener("click", () => {
+    document.querySelector("button").addEventListener("click", () => {
         showModal("Modal title", "This is the modal content!");
     });
-
 
     window.addEventListener("keydown", e => {
         if (
