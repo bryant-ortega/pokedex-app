@@ -170,16 +170,16 @@ pokemonRepository.getAll().forEach(function (pokemon) {
 
     //     confirmButton.focus();
 
-        // return new Promise((resolve, reject) => {
-        //     cancelButton.addEventListener("click", hideModal);
-        //     confirmButton.addEventListener("click", () => {
-        //         dialogPromiseReject = null;
-        //         hideModal();
-        //         resolve();
-        //     });
-        //     dialogPromiseReject = reject;
-        // });
-    }
+    //     return new Promise((resolve, reject) => {
+    //         cancelButton.addEventListener("click", hideModal);
+    //         confirmButton.addEventListener("click", () => {
+    //             dialogPromiseReject = null;
+    //             hideModal();
+    //             resolve();
+    //         });
+    //         dialogPromiseReject = reject;
+    //     });
+    // }
 
     document.querySelector("#show-modal").addEventListener("click", () => {
         showModal("Modal title", "This is the modal content!");
