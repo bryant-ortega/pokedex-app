@@ -141,60 +141,60 @@ pokemonRepository.getAll().forEach(function (pokemon) {
         modalContainer.classList.add("is-visible");
     }
 
-    let dialogPromiseReject;
+    // let dialogPromiseReject;
 
     function hideModal() {
         modalContainer.classList.remove("is-visible");
 
-        if (dialogPromiseReject) {
-            dialogPromiseReject();
-            dialogPromiseReject = null;
-        }
+        // if (dialogPromiseReject) {
+        //     dialogPromiseReject();
+        //     dialogPromiseReject = null;
+        // }
     }
 
-    function showDialog(title, text) {
-        showModal(title, text);
+    // function showDialog(title, text) {
+    //     showModal(title, text);
 
-        let modal = modalContainer.querySelector(".modal");
+    //     let modal = modalContainer.querySelector(".modal");
 
-        let confirmButton = document.createElement("button");
-        confirmButton.classList.add("modal-confirm");
-        confirmButton.innerText = "Confirm";
+    //     let confirmButton = document.createElement("button");
+    //     confirmButton.classList.add("modal-confirm");
+    //     confirmButton.innerText = "Confirm";
 
-        let cancelButton = document.createElement("button");
-        cancelButton.classList.add("modal-cancel");
-        cancelButton.innerText = "Cancel";
+    //     let cancelButton = document.createElement("button");
+    //     cancelButton.classList.add("modal-cancel");
+    //     cancelButton.innerText = "Cancel";
 
-        modal.appendChild(confirmButton);
-        modal.appendChild(cancelButton);
+    //     modal.appendChild(confirmButton);
+    //     modal.appendChild(cancelButton);
 
-        confirmButton.focus();
+    //     confirmButton.focus();
 
-        return new Promise((resolve, reject) => {
-            cancelButton.addEventListener("click", hideModal);
-            confirmButton.addEventListener("click", () => {
-                dialogPromiseReject = null;
-                hideModal();
-                resolve();
-            });
-            dialogPromiseReject = reject;
-        });
+        // return new Promise((resolve, reject) => {
+        //     cancelButton.addEventListener("click", hideModal);
+        //     confirmButton.addEventListener("click", () => {
+        //         dialogPromiseReject = null;
+        //         hideModal();
+        //         resolve();
+        //     });
+        //     dialogPromiseReject = reject;
+        // });
     }
 
     document.querySelector("#show-modal").addEventListener("click", () => {
         showModal("Modal title", "This is the modal content!");
     });
 
-    document.querySelector("#show-dialog").addEventListener("click", () => {
-        showDialog("Confirm action", "Are you sure you want to do this?").then(
-            function () {
-                alert("confirmed!");
-            },
-            () => {
-                alert("not confirmed");
-            }
-        );
-    });
+    // document.querySelector("#show-dialog").addEventListener("click", () => {
+    //     showDialog("Confirm action", "Are you sure you want to do this?").then(
+    //         function () {
+    //             alert("confirmed!");
+    //         },
+    //         () => {
+    //             alert("not confirmed");
+    //         }
+    //     );
+    // });
 
     window.addEventListener("keydown", e => {
         if (
