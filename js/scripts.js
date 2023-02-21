@@ -112,7 +112,7 @@ pokemonRepository.getAll().forEach(function (pokemon) {
 (function () {
     let modalContainer = document.querySelector("#modal-container");
 
-    function showModal(pokemon) {
+    function showModal(title, text) {
         // Clear all existing modal content
         modalContainer.innerHTML = "";
 
@@ -125,15 +125,15 @@ pokemonRepository.getAll().forEach(function (pokemon) {
         closeButtonElement.innerText = "Close";
         closeButtonElement.addEventListener("click", hideModal);
 
-        let pokemonName = document.createElement("h1");
-        pokemonName.innerText = pokemon.name;
+        let titleElement = document.createElement("h1");
+        titleElement.innerText = title;
 
-        let pokemonHeight = document.createElement("p");
-        contentElement.innerText = pokemon.height;
+        let contentElement = document.createElement("p");
+        contentElement.innerText = text;
 
         modal.appendChild(closeButtonElement);
-        modal.appendChild(pokemonName);
-        modal.appendChild(pokemon.height);
+        modal.appendChild(titleElement);
+        modal.appendChild(contentElement);
         modalContainer.appendChild(modal);
 
         modalContainer.classList.add("is-visible");
@@ -145,7 +145,7 @@ pokemonRepository.getAll().forEach(function (pokemon) {
         modalContainer.classList.remove("is-visible");
     }
 
-    document.querySelector("#show-modal").addEventListener("click", () => {
+    document.querySelector(button).addEventListener("click", () => {
         showModal("Modal title", "This is the modal content!");
     });
 
