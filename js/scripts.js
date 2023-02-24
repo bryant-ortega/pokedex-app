@@ -9,7 +9,7 @@ let pokemonRepository = (function () {
     function getAll() {
         return pokemonList;
     }
-// checks if new pokemon is an object type then adds to the pokemonList array //
+    // checks if new pokemon is an object type then adds to the pokemonList array //
     function add(pokemon) {
         if (typeof pokemon === "object") {
             pokemonList.push(pokemon);
@@ -28,6 +28,8 @@ let pokemonRepository = (function () {
     }
     // creates list of pokemon buttons //
     function addListItem(pokemon) {
+        // bootstrap class added //
+        let listItem = $('<li class="group-list-item"></li>');
         // defines where in the HTML the pokemon will appear //
         let pokemonList = document.querySelector(".pokemon-list");
         // create list elements for each pokemon //
@@ -46,7 +48,7 @@ let pokemonRepository = (function () {
         // event listener added to button //
         addEventListener(button, pokemon);
     }
-// declares what the button event listener does //
+    // declares what the button event listener does //
     function addEventListener(button, pokemon) {
         button.addEventListener("click", function (event) {
             // when button is clicked, showDetails function runs //
@@ -55,10 +57,10 @@ let pokemonRepository = (function () {
     }
 
     // Modal code from exercise //
-// declares what/where modalContainer is //
+    // declares what/where modalContainer is //
     let modalContainer = document.querySelector("#modal-container");
 
-// creates the modal //
+    // creates the modal //
     function showModal(pokemon) {
         // Clear all existing modal content
         modalContainer.innerHTML = "";
@@ -170,5 +172,3 @@ pokemonRepository.loadList().then(function () {
         pokemonRepository.addListItem(pokemon);
     });
 });
-
-
