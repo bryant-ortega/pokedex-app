@@ -37,7 +37,7 @@ let pokemonRepository = (function () {
 
         // define button to add pokemon //
         button.innerText = pokemon.name;
-        button.classList.add("customButton");
+        button.classList.add("btn btn-primary");
         // add button to each list element for each pokemon //
         listPokemon.appendChild(button);
         // add list elements to the HTML section //
