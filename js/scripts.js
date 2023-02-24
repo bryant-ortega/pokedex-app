@@ -26,7 +26,7 @@ let pokemonRepository = (function () {
             pokemon.name.toLowerCase().includes(query.toLowerCase())
         );
     }
-// creates list of pokemon buttons //
+    // creates list of pokemon buttons //
     function addListItem(pokemon) {
         // defines where in the HTML the pokemon will appear //
         let pokemonList = document.querySelector(".pokemon-list");
