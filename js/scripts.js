@@ -28,8 +28,6 @@ let pokemonRepository = (function () {
     }
     // creates list of pokemon buttons //
     function addListItem(pokemon) {
-        // bootstrap class added //
-        let listItem = $('<li class="group-list-item"></li>');
         // defines where in the HTML the pokemon will appear //
         let pokemonList = document.querySelector(".pokemon-list");
         // create list elements for each pokemon //
@@ -39,7 +37,8 @@ let pokemonRepository = (function () {
 
         // define button to add pokemon //
         button.innerText = pokemon.name;
-        button.classList.add("btn btn-primary" data-toggle="modal" data-target="#pokeModal");
+        button.classList.add("btn btn-primary");
+
         // add button to each list element for each pokemon //
         listPokemon.appendChild(button);
         // add list elements to the HTML section //
@@ -56,14 +55,28 @@ let pokemonRepository = (function () {
         });
     }
 
-    // Modal code from exercise //
-    // declares what/where modalContainer is //
+    //Modal code from exercise //
+    //declares what/where modalContainer is //
     let modalContainer = document.querySelector("#modal-container");
 
-    // creates the modal //
-    function showModal(pokemon) {
-        // Clear all existing modal content
-        modalContainer.innerHTML = "";
+    //show modal content //
+    function showModal(item) {
+        let modalBody = $(".modal-body");
+        let modalTitle = $(".modal-title");
+        let modalHeader = $(".modal-header");
+
+        // // Clear all existing modal content
+        modalTitle.empty();
+        modalBody.empty();
+        // creating element for name in modal content
+        let nameElement = $("<h1>" + item.name + "</h1>");
+        let imageElementFront = $('<img class="modal-img" style="width:50%">');
+        imageElementFront.attr("src", item.imageUrlFront);
+        let heightElement = $("<p>" + "Height : " + item.height + "</p>");
+
+        modalTitle.append(nameElement);
+        modalBody.append(imageElementFront);
+        modalBody.append(heightElement);
 
         let modal = document.createElement("div");
         modal.classList.add("modal");
