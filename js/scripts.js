@@ -5,6 +5,15 @@ let pokemonRepository = (function () {
     //where all the pokemon information comes from //
     let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
 
+ let searchButton = $(".btn-warning");
+ searchButton.on("click", function () {
+     let pokemonList = $(".pokemon-list");
+     pokemonList.empty();
+     search($(".form-control").val()).forEach(function (pokemon) {
+         addListItem(pokemon);
+     });
+ });
+
     // get's you the full list of pokemon //
     function getAll() {
         return pokemonList;
@@ -26,6 +35,8 @@ let pokemonRepository = (function () {
             pokemon.name.toLowerCase().includes(query.toLowerCase())
         );
     }
+   
+
     // creates list of pokemon buttons //
     function addListItem(pokemon) {
         // defines where in the HTML the pokemon will appear //
@@ -63,12 +74,12 @@ let pokemonRepository = (function () {
         modalBody.empty();
         // creating element for name in modal content
         let nameElement = $("<h1>" + item.name + "</h1>");
-        let imageElementFront = $('<img class="modal-img" style="width:50%">');
-        imageElementFront.attr("src", item.imageUrlFront);
+        let imageElement = $('<img class="modal-img" style="width:20%">');
+        imageElement.attr("src", item.imageUrl);
         let heightElement = $("<p>" + "Height : " + item.height + "</p>");
 
         modalTitle.append(nameElement);
-        modalBody.append(imageElementFront);
+        modalBody.append(imageElement);
         modalBody.append(heightElement);
     }
 
