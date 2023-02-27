@@ -3,7 +3,7 @@ let pokemonRepository = (function () {
     // Pokémon data to display in app//
     let pokemonList = [];
     //where all the pokemon information comes from //
-    let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
+    let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=950";
 
  let searchButton = $(".btn-warning");
  searchButton.on("click", function () {
@@ -79,6 +79,10 @@ searchBar.on("keypress keyup", event => {
         let modalBody = $(".modal-body");
         let modalTitle = $(".modal-title");
         let modalHeader = $(".modal-header");
+        let types = "";
+        item.types.forEach(type => {
+            type += type.type.name + " ";
+        });
 
         // // Clear all existing modal content
         modalTitle.empty();
@@ -88,10 +92,17 @@ searchBar.on("keypress keyup", event => {
         let imageElement = $('<img class="modal-img" style="width:20%">');
         imageElement.attr("src", item.imageUrl);
         let heightElement = $("<p>" + "Height : " + (item.height / 10) + "m" + "</p>");
+        let typeElement = $(
+            "<p>" +
+                "Type: " +
+                item.types.map(type => type.type.name).join(", ") +
+                "</p>"
+        );
 
         modalTitle.append(nameElement);
         modalBody.append(imageElement);
         modalBody.append(heightElement);
+        modalBody.append(typeElement);
     }
 
     function showDetails(pokemon) {
@@ -128,8 +139,9 @@ searchBar.on("keypress keyup", event => {
             })
             .then(function (details) {
                 // Now we add the details to the item
-                item.imageUrl = details.sprites.front_default;
+                item.imageUrl = details.sprites.other.dream_world.front_default;
                 item.height = details.height;
+                item.types = details.types;
             })
             .catch(function (e) {
                 console.error(e);
