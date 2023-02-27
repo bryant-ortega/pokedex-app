@@ -55,13 +55,6 @@ let pokemonRepository = (function () {
             showDetails(pokemon);
         });
     }
-    // declares what the button event listener does //
-    // function addEventListener(button, pokemon) {
-    //     button.addEventListener("click", function (event) {
-    //         // when button is clicked, showDetails function runs //
-    //         showDetails(pokemon);
-    //     });
-    // }
 
     //show modal content //
     function showModal(item) {
