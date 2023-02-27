@@ -14,6 +14,23 @@ let pokemonRepository = (function () {
      });
  });
 
+let searchBar = $(".form-control");
+searchBar.on("keypress keyup", event => {
+    let pokemonList = $(".pokemon-list");
+    pokemonList.empty();
+    if (event.keyCode === 8 || event.keyCode === 46) {
+        // backspace or delete key was pressed
+        search($(".form-control").val()).forEach(pokemon =>
+            addListItem(pokemon)
+        );
+    } else {
+        // any other key was pressed
+        search($(".form-control").val()).forEach(pokemon =>
+            addListItem(pokemon)
+        );
+    }
+});
+
     // get's you the full list of pokemon //
     function getAll() {
         return pokemonList;
@@ -55,13 +72,7 @@ let pokemonRepository = (function () {
             showDetails(pokemon);
         });
     }
-    // declares what the button event listener does //
-    // function addEventListener(button, pokemon) {
-    //     button.addEventListener("click", function (event) {
-    //         // when button is clicked, showDetails function runs //
-    //         showDetails(pokemon);
-    //     });
-    // }
+
 
     //show modal content //
     function showModal(item) {
